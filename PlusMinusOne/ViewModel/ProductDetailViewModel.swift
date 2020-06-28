@@ -13,15 +13,29 @@ class ProductDetailViewModel: ObservableObject {
 
     @Published var product: Product
     @Published var social: Social
+    @Published var showError: Bool
     
     init() {
-        social = Bundle.main.decode(Social.self, from: "social-data.json")
-        product = Bundle.main.decode(Product.self, from: "product.json")
+        showError = false
+        do {
+            social = try Bundle.main.decode(Social.self, from: "social-data.json")
+            product = try Bundle.main.decode(Product.self, from: "product.json")
+        } catch {
+            social = Social()
+            product = Product()
+            showError = true
+        }
     }
 
     
     func fetchSocial() {
-        social = Bundle.main.decode(Social.self, from: "social-data.json")
+        showError = false
+        do {
+            social = try Bundle.main.decode(Social.self, from: "social-data.json")
+        } catch {
+            social = Social()
+            showError = true
+        }
     }
     
 }

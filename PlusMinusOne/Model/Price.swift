@@ -11,4 +11,9 @@ import Foundation
 struct Price: Decodable {
     let value: Double
     let currency: String
+    
+    init() {
+        value = 0
+        currency = "$"
+    }
 }

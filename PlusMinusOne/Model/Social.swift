@@ -11,4 +11,9 @@ import Foundation
 struct Social: Decodable {
     let likeCount: Int
     var commentCounts: CommentCounts
+    
+    init() {
+        likeCount = 0
+        commentCounts = CommentCounts()
+    }
 }

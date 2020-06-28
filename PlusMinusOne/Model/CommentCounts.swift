@@ -12,4 +12,10 @@ struct CommentCounts: Decodable {
     let averageRating: Double
     let anonymousCommentsCount: Int
     let memberCommentsCount: Int
+    
+    init() {
+        averageRating = 0
+        anonymousCommentsCount = 0
+        memberCommentsCount = 0
+    }
 }

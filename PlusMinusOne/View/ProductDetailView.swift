@@ -49,6 +49,9 @@ struct ProductDetailView: View {
             Spacer()
         }
         .edgesIgnoringSafeArea(.top)
+        .alert(isPresented: $viewModel.showError) {
+                   Alert(title: Text("Couldn' read from file!"), message: Text("The JSON file might be missing or the contents may be incorrect!"), dismissButton: .default(Text("OK")))
+               }
     }
 }
 
